@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:ecommerce/components/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +21,6 @@ class _HomePageState extends State<HomePage> {
   void navigateBottomBar(int index) {
     setState(() {
       selectedIndex = index;
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => pages[index],
-      //     ));
     });
   }
 
@@ -58,14 +55,69 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         backgroundColor: Colors.black,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            DrawerHeader(
-              child: Image.asset(
-                'lib/images/nike.png',
-                color: Colors.white,
-              ),
+            Column(
+              children: [
+                DrawerHeader(
+                  child: Image.asset(
+                    'lib/images/nike.png',
+                    color: Colors.white,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Divider(
+                    color: Colors.grey[800],
+                  ),
+                ),
+                const Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        'HOME',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    )),
+                const Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        'ABOUT',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    )),
+              ],
             ),
-            // const Divider()
+            const Padding(
+                padding: EdgeInsets.only(left: 25, bottom: 25),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.key_outlined,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'LOG OUT',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                )),
           ],
         ),
       ),
